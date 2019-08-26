@@ -1,3 +1,31 @@
+# create two simple SPA project (one with Angular and one with React) with shared backend server with at least one Get and one Delete request.
+
+
+Since you know both Angular and React, (I am not sure which one you are going to use in the next project here) 
+I want to kindly ask you create two simple SPA project (one with Angular and one with React) with shared backend server with at least one Get and one Delete request.
+
+Please mind these:
+Use Router and have at least 2 different routes
+Show 2 list of items which you get from API call and you could select and move items between these lists
+You could move items one by one, move all at once, and by dragging one item and dropping in another list ( or dropping and change the order of an item in its own list)
+Use Redux or some other state management
+Being responsive
+And you could delete items
+Show success message on successful delete
+
+** It would be great if you could have login/logout (Using JWT) in your project as well (If you have enough time for this)
+
+Feel free to reach me anytime in case you have question 
+Best Regards
+
+Somaye Khalili
+
+Senior Developer @ mobileLIVE
+
+M. 416 877 2704
+
+------------------------------------------------------------------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
