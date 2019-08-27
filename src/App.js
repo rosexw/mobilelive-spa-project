@@ -35,40 +35,50 @@ class App extends Component {
     this.props.createContact(contact);
   }
 
+
   listView(data, index){
     return (
       <div className="row form-inline" key={index}>
-        <table>
+        <table className="results-table">
           <tbody>
             <tr className="list-group-item clearfix">
               <td>{data.name}</td>
+              <div class="edit-delete-combined">
+                <td>
+                  <button 
+                    onClick={(e) => 
+                    this.editContact(e, index)} 
+                    className="btn btn-info edit-button"
+                  >
+                    Edit
+                  </button>
+                </td>
+                <td>
+                <button 
+                  onClick={(e) => 
+                  this.deleteContact(e, index)} 
+                  className="btn btn-danger delete-button"
+                >
+                  Delete
+                </button>
+                </td>
+              </div>
             </tr>
           </tbody>
         </table>
-        <div className="col-md-2">
-          <button onClick={(e) => this.editContact(e, index)} className="btn btn-info edit-button">
-            Edit
-          </button>
-        </div>
-        <div className="col-md-2">
-          <button onClick={(e) => this.deleteContact(e, index)} className="btn btn-danger delete-button">
-            Delete
-          </button>
-        </div>
     </div> 
     )
-  }
-
-  deleteContact(e, index){
-    e.preventDefault();
-    this.props.deleteContact(index);
   }
 
   editContact(e, index){
     e.preventDefault();
     this.props.editContact(index);
-  }
+  };
 
+  deleteContact(e, index){
+    e.preventDefault();
+    this.props.deleteContact(index);
+  };
 
   render() {
 
@@ -76,7 +86,7 @@ class App extends Component {
       <div className="frame">
         <h1>Clientside Contacts Application</h1>
         <hr />
-        <div>
+        <div className="contacts-form-results">
           <h3>Add Contact Form</h3>
           <form onSubmit={this.handleSubmit}>
             <input type="text" onChange={this.handleChange} className="form-control" value={this.state.name}/>
@@ -101,8 +111,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createContact: contact => dispatch(contactAction.createContact(contact)),
-    deleteContact: index => dispatch(contactAction.deleteContact(index)),
     editContact: index => dispatch(contactAction.editContact(index)),
+    deleteContact: index => dispatch(contactAction.deleteContact(index)),
   }
 };
 

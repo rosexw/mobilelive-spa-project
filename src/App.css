@@ -1,5 +1,31 @@
+.contacts-form-results {
+  font-size: 15px;
+}
+
 .frame {
   margin: 20px;
+}
+
+.results-table {
+  table-layout: fixed;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.results-table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: space-between;
+}
+
+.form-control {
+  width: 80%;
 }
 
 .add-button {
@@ -9,32 +35,23 @@
   padding: 0.5em 1em;  
 }
 
-.form-control {
-  width: 200px;
-}
-
-.form-inline {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: space-between;
-}
-
 .delete-button {
   background-color: red;
-  color: white;
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-  margin-left: 10px;
-  padding: 0.5em 1em;  
 }
 
 .edit-button {
   background-color: orange;
+}
+
+.edit-delete-combined {
+  align-items: right;
+}
+
+.btn {
   color: white;
   display: inline-block;
-  text-align: center;
+  text-align: right;
   text-decoration: none;
   margin-left: 10px;
-  padding: 0.5em 1em;  
+  padding: 0.5em 1em;
 }

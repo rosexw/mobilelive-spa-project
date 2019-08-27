@@ -13,7 +13,7 @@ export default (state = [], action) => {
       case actionTypes.REMOVE_CONTACT:
         return state.filter((data, i) => i !== action.id);
       case actionTypes.EDIT_CONTACT:
-        return state.filter((data, i) => i === action.id);
+        return state.filter((data, c) => c === action.contact);
       default:
         return state;
     }

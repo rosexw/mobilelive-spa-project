@@ -16,9 +16,9 @@ export const deleteContact = (id) => {
   }
 };
 
-export const editContact = (id) => {
+export const editContact = (contact) => {
   return {
       type: actionTypes.EDIT_CONTACT,
-      id: id
+      contact: contact
   }
 }
