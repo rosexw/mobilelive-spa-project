@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as contactAction from './actions/contactAction';
+import './App.css';
 
 class App extends Component {
 
@@ -36,15 +37,22 @@ class App extends Component {
 
   listView(data, index){
     return (
-      <div className="row">
-        <div className="col-md-10">
-          <li key={index} className="list-group-item clearfix">
-            {data.name}
-          </li>
+      <div className="row form-inline" key={index}>
+        <table>
+          <tbody>
+            <tr className="list-group-item clearfix">
+              <td>{data.name}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div className="col-md-2">
+          <button onClick={(e) => this.editContact(e, index)} className="btn btn-info edit-button">
+            Edit
+          </button>
         </div>
         <div className="col-md-2">
-          <button onClick={(e) => this.deleteContact(e, index)} className="btn btn-danger">
-            Remove
+          <button onClick={(e) => this.deleteContact(e, index)} className="btn btn-danger delete-button">
+            Delete
           </button>
         </div>
     </div> 
@@ -56,23 +64,28 @@ class App extends Component {
     this.props.deleteContact(index);
   }
 
+  editContact(e, index){
+    e.preventDefault();
+    this.props.editContact(index);
+  }
+
 
   render() {
 
     return(
-      <div>
+      <div className="frame">
         <h1>Clientside Contacts Application</h1>
         <hr />
         <div>
           <h3>Add Contact Form</h3>
           <form onSubmit={this.handleSubmit}>
-            <input type="text" onChange={this.handleChange} className="form-control" value={this.state.name}/><br />
-            <input type="submit" className="btn btn-success" value="ADD"/>
+            <input type="text" onChange={this.handleChange} className="form-control" value={this.state.name}/>
+            <input type="submit" className="btn btn-success add-button" value="ADD"/>
           </form>
           <hr />
-        { <ul className="list-group">
-          {this.props.contacts.map((contact, i) => this.listView(contact, i))}
-        </ul> }
+            <ul className="list-group">
+              {this.props.contacts.map((contact, i) => this.listView(contact, i))}
+            </ul>
         </div>
       </div>
     )
@@ -88,7 +101,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createContact: contact => dispatch(contactAction.createContact(contact)),
-    deleteContact: index => dispatch(contactAction.deleteContact(index))
+    deleteContact: index => dispatch(contactAction.deleteContact(index)),
+    editContact: index => dispatch(contactAction.editContact(index)),
   }
 };
 

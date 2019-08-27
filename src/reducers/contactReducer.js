@@ -12,7 +12,13 @@ export default (state = [], action) => {
         ];
       case actionTypes.REMOVE_CONTACT:
         return state.filter((data, i) => i !== action.id);
+      case actionTypes.EDIT_CONTACT:
+        return state.filter((data, i) => i === action.id);
       default:
         return state;
     }
   };
+
+  // Change the Edit function case as above
+  // ** Another task to do: add routing - route to a different page when pressed.
+  // Alert if delete!
