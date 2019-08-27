@@ -8,6 +8,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as contactAction from './actions/contactAction';
 import './App.css';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+// import Home from './components/Home';
+import Edit from './components/Edit';
 
 class App extends Component {
 
@@ -38,35 +41,40 @@ class App extends Component {
 
   listView(data, index){
     return (
-      <div className="row form-inline" key={index}>
-        <table className="results-table">
-          <tbody>
-            <tr className="list-group-item clearfix">
-              <td>{data.name}</td>
-              <div class="edit-delete-combined">
-                <td>
+      <Router>
+        <div className="row form-inline" key={index}>
+          <table className="results-table">
+            <tbody>
+              <tr className="list-group-item clearfix">
+                <td>{data.name}</td>
+                <div class="edit-delete-combined">
+                  <td>
+                    <Link to="/edit">
+                      <button 
+                        onClick={(e) => 
+                        this.editContact(e, index)} 
+                        className="btn btn-info edit-button"
+                      >
+                        Edit
+                        <Route path='/edit' component={Edit} />
+                      </button>
+                    </Link>
+                  </td>
+                  <td>
                   <button 
                     onClick={(e) => 
-                    this.editContact(e, index)} 
-                    className="btn btn-info edit-button"
+                    this.deleteContact(e, index)} 
+                    className="btn btn-danger delete-button"
                   >
-                    Edit
+                    Delete
                   </button>
-                </td>
-                <td>
-                <button 
-                  onClick={(e) => 
-                  this.deleteContact(e, index)} 
-                  className="btn btn-danger delete-button"
-                >
-                  Delete
-                </button>
-                </td>
-              </div>
-            </tr>
-          </tbody>
-        </table>
-    </div> 
+                  </td>
+                </div>
+              </tr>
+            </tbody>
+          </table>
+      </div> 
+    </Router>
     )
   }
 
@@ -90,7 +98,7 @@ class App extends Component {
           <h3>Add Contact Form</h3>
           <form onSubmit={this.handleSubmit}>
             <input type="text" onChange={this.handleChange} className="form-control" value={this.state.name}/>
-            <input type="submit" className="btn btn-success add-button" value="ADD"/>
+            <input type="submit" className="btn btn-success add-button" value="Add Contact"/>
           </form>
           <hr />
             <ul className="list-group">
