@@ -36,11 +36,10 @@ class Home extends Component {
       <tr className="list-group-item clearfix" key={index}>
         <td>{data.name}</td>
         <td>
-          <Link to={`/edit/${data.name}`} className="btn btn-info edit-button">
+          <Link to={`/edit/${index+1}`} className="btn btn-info edit-button">
             Edit
           </Link>
-          <button 
-            onDelete={this.handleDelete}
+          <button
             onClick={(e) => 
             this.deleteContact(e, index)} 
             className="btn btn-danger delete-button"
@@ -54,8 +53,10 @@ class Home extends Component {
 
   deleteContact(e, index){
     e.preventDefault();
-    this.props.deleteContact(index);
-    alert(`Successful deletion of ${index+1}`);
+    if (window.confirm('Are you sure you wish to delete this item?')) {
+      this.props.deleteContact(index);
+      alert(`Successful deletion of ${index+1}`);
+    }
   };
 
   render() {
@@ -93,7 +94,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     createContact: contact => dispatch(contactAction.createContact(contact)),
     editContact: index => dispatch(contactAction.editContact(index)),
-    deleteContact: index => dispatch(contactAction.deleteContact(index)),
+    deleteContact: contact => dispatch(contactAction.deleteContact(contact)),
   }
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
