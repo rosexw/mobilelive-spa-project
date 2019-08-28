@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as contactAction from '../actions/contactAction';
 
+
 class Home extends Component {
   constructor(props){
     super(props);
@@ -30,16 +31,16 @@ class Home extends Component {
     this.props.createContact(contact);
   }
 
-
   listItemView(data, index){
     return (
       <tr className="list-group-item clearfix" key={index}>
         <td>{data.name}</td>
         <td>
-          <Link to="/edit" className="btn btn-info edit-button">
+          <Link to={`/edit/${data.name}`} className="btn btn-info edit-button">
             Edit
           </Link>
           <button 
+            onDelete={this.handleDelete}
             onClick={(e) => 
             this.deleteContact(e, index)} 
             className="btn btn-danger delete-button"
@@ -54,6 +55,7 @@ class Home extends Component {
   deleteContact(e, index){
     e.preventDefault();
     this.props.deleteContact(index);
+    alert(`Successful deletion of ${index+1}`);
   };
 
   render() {

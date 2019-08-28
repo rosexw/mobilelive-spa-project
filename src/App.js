@@ -18,7 +18,8 @@ class App extends Component {
           <h1>Clientside Contacts Application</h1>
           <hr />
           <Route path="/" exact component={Home} />
-          <Route path="/edit" component={Edit} />
+          {/* <Route path="/edit" component={Edit} /> */}
+          <Route path="/edit/:id" component={Edit} />
         </div>
       </Router>
     )
