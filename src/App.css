@@ -43,14 +43,9 @@
   background-color: orange;
 }
 
-.edit-delete-combined {
-  align-items: right;
-}
-
 .btn {
   color: white;
   display: inline-block;
-  text-align: right;
   text-decoration: none;
   margin-left: 10px;
   padding: 0.5em 1em;
