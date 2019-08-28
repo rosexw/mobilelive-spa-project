@@ -8,6 +8,10 @@
   width: 100%;
 }
 
+.list-data-item {
+  width: 81%;
+}
+
 .results-table {
   table-layout: fixed;
   width: 100%;
@@ -16,8 +20,8 @@
 
 .results-table td {
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow: scroll;
+  /* text-overflow: ellipsis; */
 }
 
 .form-inline {

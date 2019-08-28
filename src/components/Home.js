@@ -34,9 +34,9 @@ class Home extends Component {
   listItemView(data, index){
     return (
       <tr className="list-group-item clearfix" key={index}>
-        <td>{data.name}</td>
+        <td className="list-data-item">{data.name}</td>
         <td>
-          <Link to={`/edit/${index+1}`} className="btn btn-info edit-button">
+          <Link to={`/edit/${data.name}`} className="btn btn-info edit-button">
             Edit
           </Link>
           <button
@@ -71,13 +71,13 @@ class Home extends Component {
               <input type="submit" className="btn btn-success add-button" value="Add Contact"/>
             </form>
             <hr />
-              <ul className="list-group">
-              <table className="results-table">
-                <tbody>
-                  {this.props.contacts.map((contact, i) => this.listItemView(contact, i))}
-                </tbody>
-              </table>
-              </ul>
+
+            <h3>List 1</h3>
+            <table className="results-table">
+              <tbody>
+                {this.props.contacts.map((contact, i) => this.listItemView(contact, i))}
+              </tbody>
+            </table>
           </div>
         </div>
     );

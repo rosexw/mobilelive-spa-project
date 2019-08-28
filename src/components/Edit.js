@@ -10,7 +10,7 @@ class Edit extends Component {
       <Router>
         <div>
           <h2>Edit</h2>
-          <p>Item is <Route path="/edit/:id" component={Contact} /></p>
+          <p>Item is "<Route path="/edit/:id" component={Contact} />"</p>
         </div>
       </Router>
     );
