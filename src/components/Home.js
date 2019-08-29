@@ -46,12 +46,12 @@ class Home extends Component {
 
             <div class="column">
               <th>List 1</th>
-              <List />
+              <List list={this.props.list1} />
             </div>
 
             <div class="column">
               <th>List 2</th>
-              <List />
+              <List list={this.props.list2} />
             </div>
             
           </div>
@@ -62,7 +62,8 @@ class Home extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    contacts: state.contacts
+    list1: state.contacts.list1,
+    list2: state.contacts.list2,
   }
 };
 

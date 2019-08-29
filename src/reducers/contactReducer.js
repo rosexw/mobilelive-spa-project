@@ -1,17 +1,29 @@
 // contactReducer.js
 
 import * as actionTypes from '../actions/actionTypes';
+import { stat } from 'fs';
 
-export default (state = [], action) => {
+const initialState = {
+  list1: [],
+  list2: [],
+};
+
+export default (state = initialState, action) => {
     switch (action.type){
-      
       case actionTypes.CREATE_NEW_CONTACT:
-        return [
+        return {
           ...state,
-          Object.assign({}, action.contact)
-        ];
+          list1: [
+            ...state.list1,
+            Object.assign({}, action.contact)
+          ],
+        };
       case actionTypes.REMOVE_CONTACT:
-        return state.filter((data, i) => i !== action.id);
+        return {
+          ...state,
+          list1: state.list1.filter((data, i) => i !== action.id),
+        }
+          ;
       case actionTypes.EDIT_CONTACT:
         return state;
       default:

@@ -25,7 +25,7 @@ class List extends Component {
             </Link>
             <button
               onClick={(e) => 
-              this.deleteContact(e, index)} 
+              this.deleteContact(e, data.name, index)} 
               className="btn btn-danger delete-button"
             >
               Delete
@@ -36,11 +36,13 @@ class List extends Component {
     )
   }
 
-  deleteContact(e, index){
+  deleteContact(e, name, index){
     e.preventDefault();
     if (window.confirm('Are you sure you wish to delete this item?')) {
       this.props.deleteContact(index);
-      alert(`Successful deletion of ${index+1}`);
+      setTimeout(() => {
+        alert(`Successful deletion of ${name}`);
+      }, 500);
     }
   };
 
@@ -49,7 +51,7 @@ class List extends Component {
         <div>
           <table className="results-table">
             <tbody>
-              {this.props.contacts.map((contact, i) => this.listItemView(contact, i))}
+              {this.props.list.map((contact, i) => this.listItemView(contact, i))}
             </tbody>    
           </table>
         </div>
@@ -59,7 +61,7 @@ class List extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    contacts: state.contacts
+    // contacts: state.contacts.list1
   }
 };
 
