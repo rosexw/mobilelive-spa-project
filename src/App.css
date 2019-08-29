@@ -5,23 +5,28 @@
 
 .frame {
   margin: 20px;
-  width: 100%;
+  max-width: 100%;
+  border: 20px;
 }
 
 .list-data-item {
-  width: 81%;
+  width: 85%;
 }
 
 .results-table {
   table-layout: fixed;
   width: 100%;
-  white-space: nowrap;
+  border-collapse: collapse;
 }
 
-.results-table td {
-  white-space: nowrap;
+.list-data-item {
+  white-space: pre-line;
   overflow: scroll;
-  /* text-overflow: ellipsis; */
+  word-break: break-word;
+}
+
+.list-buttons {
+  white-space: nowrap;
 }
 
 .form-inline {
@@ -54,4 +59,18 @@
   margin-left: 10px;
   padding: 0.5em 1em;
   font-size: 18px;
+}
+
+
+.column {
+  float: left;
+  width: 48%;
+  margin: 0 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }

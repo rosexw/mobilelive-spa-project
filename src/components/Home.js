@@ -1,9 +1,9 @@
 // Home.js
 
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as contactAction from '../actions/contactAction';
+import List from './List.js'
 
 
 class Home extends Component {
@@ -27,37 +27,9 @@ class Home extends Component {
     e.preventDefault();
     let contact = {
       name: this.state.name,
-    } 
+    }
     this.props.createContact(contact);
   }
-
-  listItemView(data, index){
-    return (
-      <tr className="list-group-item clearfix" key={index}>
-        <td className="list-data-item">{data.name}</td>
-        <td>
-          <Link to={`/edit/${data.name}`} className="btn btn-info edit-button">
-            Edit
-          </Link>
-          <button
-            onClick={(e) => 
-            this.deleteContact(e, index)} 
-            className="btn btn-danger delete-button"
-          >
-            Delete
-          </button>
-        </td>
-      </tr>
-    )
-  }
-
-  deleteContact(e, index){
-    e.preventDefault();
-    if (window.confirm('Are you sure you wish to delete this item?')) {
-      this.props.deleteContact(index);
-      alert(`Successful deletion of ${index+1}`);
-    }
-  };
 
   render() {
     return (
@@ -72,12 +44,16 @@ class Home extends Component {
             </form>
             <hr />
 
-            <h3>List 1</h3>
-            <table className="results-table">
-              <tbody>
-                {this.props.contacts.map((contact, i) => this.listItemView(contact, i))}
-              </tbody>
-            </table>
+            <div class="column">
+              <th>List 1</th>
+              <List />
+            </div>
+
+            <div class="column">
+              <th>List 2</th>
+              <List />
+            </div>
+            
           </div>
         </div>
     );
@@ -93,8 +69,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createContact: contact => dispatch(contactAction.createContact(contact)),
-    editContact: index => dispatch(contactAction.editContact(index)),
-    deleteContact: contact => dispatch(contactAction.deleteContact(contact)),
   }
 };
+
+
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
