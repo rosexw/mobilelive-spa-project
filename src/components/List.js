@@ -42,7 +42,7 @@ class List extends Component {
       this.props.deleteContact(index);
       setTimeout(() => {
         alert(`Successful deletion of ${name}`);
-      }, 500);
+      }, 300);
     }
   };
 
