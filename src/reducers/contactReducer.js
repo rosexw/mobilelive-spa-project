@@ -1,7 +1,7 @@
 // contactReducer.js
 
 import * as actionTypes from '../actions/actionTypes';
-import { stat } from 'fs';
+// import { stat } from 'fs';
 
 const initialState = {
   list1: [],
@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
           list1: [
             ...state.list1,
             Object.assign({}, action.contact)
-          ],
+          ]
         };
       case actionTypes.REMOVE_CONTACT:
         return {

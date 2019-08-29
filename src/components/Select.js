@@ -3,44 +3,30 @@
 
 import React, { Component } from 'react';
 
-// export const Select = props => {
-//   const renderSelectOptions = (key, index) => {
-//     return (
-//       <option
-//         key={`${index}-${key}`}
-//         value={key}
-//       >
-//         {props.options[key]}
-//       </option>
-//     );
-//   }
-
-//   if (props && props.options) {
-//     return (
-//       <div className="mv3 w-100">
-//         <div className="b sans-serif pv2 w-100">{props.label}</div>
-//         <select {...props.input} className="pa2 input-reset ba b--black-40 w-100">
-//           <option value="">Select</option>
-//           {Object.keys(props.options).map(renderSelectOptions)}
-//         </select>
-
-//       </div>
-//     )
-//   }
-//   return <div></div>
-// }
-
-// export default Select;
-
 class Select extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectValue: "selected-list-1"
+    };
+
+    this.handleDropdownChange = this.handleDropdownChange.bind(this);
+  }
+
+  handleDropdownChange(e) {
+    this.setState({ selectValue: e.target.value });
+  }
+
   render() {
     return(
       <select 
-        id="select-list"
+        id="dropdown"
         name="select-list"
+        onChange={this.handleDropdownChange}
       > 
-        <option className="select-list-1">Add to List 1</option>
-        <option className="select-list-2">Add to List 2</option>
+        <option className="select-list-1" value="selected-list-1">Add to List 1</option>
+        <option className="select-list-2" value="selected-list-2">Add to List 2</option>
       </select>
     )
   }
