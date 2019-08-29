@@ -37,9 +37,13 @@ class Home extends Component {
           <h2>Home</h2>
 
           <div className="contacts-form-results">
-            <h3>Add Contact Form to List 1</h3>
+            <h3>Add Contact</h3>
             <form onSubmit={this.handleSubmit}>
               <input type="text" onChange={this.handleChange} className="form-control" value={this.state.name}/>
+              <select id="select-list" name="select-list"> 
+                <option className="select-list-1">Add to List 1</option>
+                <option className="select-list-2">Add to List 2</option>
+              </select>
               <input type="submit" className="btn btn-success add-button" value="Add Contact"/>
             </form>
             <hr />

@@ -36,7 +36,11 @@
 }
 
 .form-control {
-  width: 80%;
+  width: 75%;
+}
+
+#select-list {
+  margin: 0 20px;
 }
 
 .add-button {
