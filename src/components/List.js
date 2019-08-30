@@ -16,30 +16,28 @@ class List extends Component {
 
   listItemView(data, index){
     return (
-      <div>
-        <tr className="list-group-item clearfix" key={index}>
-          <td className="list-data-item">{data.name}</td>
-          <td className="list-buttons">
-            <Link to={`/edit/${data.name}`} className="btn btn-info edit-button">
-              Edit
-            </Link>
-            <button
-              onClick={(e) => 
-              this.deleteContact(e, data.name, index)} 
-              className="btn btn-danger delete-button"
-            >
-              Delete
-            </button>
-          </td>
-        </tr>
-      </div>
+      <tr className="list-group-item clearfix" key={data.id}>
+        <td className="list-data-item">{data.name}</td>
+        <td className="list-buttons">
+          <Link to={`/edit/${data.name}`} className="btn btn-info edit-button">
+            Edit
+          </Link>
+          <button
+            onClick={(e) => 
+            this.deleteContact(e, data.name, data.id)} 
+            className="btn btn-danger delete-button"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
     )
   }
 
-  deleteContact(e, name, index){
+  deleteContact(e, name, id){
     e.preventDefault();
     if (window.confirm('Are you sure you wish to delete this item?')) {
-      this.props.deleteContact(index);
+      this.props.deleteContact(id);
       setTimeout(() => {
         alert(`Successful deletion of ${name}`);
       }, 300);
@@ -48,13 +46,11 @@ class List extends Component {
 
   render() {
     return (
-        <div>
-          <table className="results-table">
-            <tbody>
-              {this.props.list.map((contact, i) => this.listItemView(contact, i))}
-            </tbody>    
-          </table>
-        </div>
+      <table className="results-table">
+        <tbody>
+          {this.props.list.map((contact, i) => this.listItemView(contact, i))}
+        </tbody>    
+      </table>
     );
   }
 }

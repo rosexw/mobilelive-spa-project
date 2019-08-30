@@ -59,13 +59,13 @@ class Form extends Component {
             <p>Selected value is : {this.state.selectValue}</p>
             <hr />
 
-            <div class="column">
-              <th>List 1</th>
+            <div className="column">
+              <h3>List 1</h3>
               <List list={this.props.list1} />
             </div>
 
-            <div class="column">
-              <th>List 2</th>
+            <div className="column">
+              <h3>List 2</h3>
               <List list={this.props.list2} />
             </div>
             

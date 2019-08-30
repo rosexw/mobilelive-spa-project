@@ -9,10 +9,6 @@
   border: 20px;
 }
 
-.list-data-item {
-  width: 85%;
-}
-
 .results-table {
   table-layout: fixed;
   width: 100%;
@@ -27,6 +23,7 @@
 
 .list-buttons {
   white-space: nowrap;
+  float: right;
 }
 
 .form-inline {

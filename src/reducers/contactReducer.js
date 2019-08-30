@@ -7,6 +7,14 @@ const initialState = {
   list2: [],
 };
 
+let idCount = 0;
+
+function createContact(contact) {
+  return Object.assign({}, contact, {
+    id: idCount ++
+  })
+}
+
 export default (state = initialState, action) => {
     switch (action.type){
       case actionTypes.CREATE_NEW_CONTACT:
@@ -15,7 +23,7 @@ export default (state = initialState, action) => {
             ...state,
             list1: [
               ...state.list1,
-              Object.assign({}, action.contact)
+              createContact(action.contact)
             ]
           }          
         } else {
@@ -23,18 +31,19 @@ export default (state = initialState, action) => {
             ...state,
             list2: [
               ...state.list2,
-              Object.assign({}, action.contact)
+              createContact(action.contact)
             ]
           };
         }
 
       case actionTypes.REMOVE_CONTACT:
+        console.log("action.id", action.id);
         return {
           ...state,
           // if contact is in list 1, then:
-          list1: state.list1.filter((data, i) => i !== action.id),
+          list1: state.list1.filter(data => data.id !== action.id),
           // else contact is in list 2, then
-          list2: state.list2.filter((data, i) => i !== action.id)
+          list2: state.list2.filter(data => data.id !== action.id)
         }
           ;
       case actionTypes.EDIT_CONTACT:
