@@ -4,16 +4,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as contactAction from '../actions/contactAction';
 import List from './List.js';
-import Select from './Select.js';
 
 class Form extends Component {
   constructor(props){
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDropdownChange = this.handleDropdownChange.bind(this);
 
     this.state = {
       name: '',
+      selectValue: "list1"
     }
   }
 
@@ -28,8 +29,13 @@ class Form extends Component {
     let contact = {
       name: this.state.name,
     }
-    this.props.createContact(contact);
+    this.props.createContact(contact, this.state.selectValue);
   }
+
+  handleDropdownChange(e) {
+    this.setState({ selectValue: e.target.value });
+  }
+
 
   render() {
     return (
@@ -38,9 +44,19 @@ class Form extends Component {
             <h3>Add Contact</h3>
             <form onSubmit={this.handleSubmit}>
               <input type="text" onChange={this.handleChange} className="form-control" value={this.state.name}/>
-              <Select />
+            
+              <select 
+                id="dropdown"
+                name="select-list"
+                onChange={this.handleDropdownChange}
+              > 
+                <option className="option" value="list1">Add to List 1</option>
+                <option className="option" value="list2">Add to List 2</option>
+              </select>
+
               <input type="submit" className="btn btn-success add-button" value="Add Contact"/>
             </form>
+            <p>Selected value is : {this.state.selectValue}</p>
             <hr />
 
             <div class="column">
@@ -68,7 +84,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createContact: contact => dispatch(contactAction.createContact(contact)),
+    createContact: (contact, list) => dispatch(contactAction.createContact(contact, list)),
   }
 };
 

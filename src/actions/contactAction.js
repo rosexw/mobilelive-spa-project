@@ -2,10 +2,11 @@
 
 import * as actionTypes from './actionTypes';
 
-export const createContact = (contact) => {
+export const createContact = (contact, list) => {
   return {
     type: actionTypes.CREATE_NEW_CONTACT,
-    contact: contact
+    contact: contact,
+    list: list
   }
 };
 

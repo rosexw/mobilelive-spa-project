@@ -1,9 +1,5 @@
 // App.js
 
-// https://appdividend.com/2017/11/02/simple-redux-create-delete-contact-application/
-// the above tutorial, but modified so the errors don't occur.
-
-
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
