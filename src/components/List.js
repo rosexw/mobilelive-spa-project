@@ -39,7 +39,7 @@ class List extends Component {
     if (window.confirm('Are you sure you wish to delete this item?')) {
       this.props.deleteContact(id);
       setTimeout(() => {
-        alert(`Successful deletion of ${name}`);
+        alert(`Successful deletion of "${name}" at index ${id}`);
       }, 300);
     }
   };

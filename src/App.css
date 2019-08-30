@@ -19,6 +19,7 @@
   white-space: pre-line;
   overflow: scroll;
   word-break: break-word;
+  min-width: 100%;
 }
 
 .list-buttons {
@@ -40,18 +41,6 @@
   margin: 0 20px;
 }
 
-.add-button {
-  background-color: green;
-  margin-left: 20px;
-}
-
-.delete-button {
-  background-color: red;
-}
-
-.edit-button {
-  background-color: orange;
-}
 
 .btn {
   color: white;
@@ -62,6 +51,44 @@
   font-size: 18px;
 }
 
+.add-button {
+  background-color: green;
+  margin-left: 20px;
+}
+
+.delete-button {
+  background-color: red;
+}
+
+.delete-button:hover {
+  color: red;
+  background-color: white;
+}
+
+.edit-button {
+  background-color: orange;
+}
+
+.edit-button:hover {
+  color: orange;
+  background-color: white;
+  border: 1px solid rgb(186, 186, 186);
+}
+
+.move-button {
+  background-color: white;
+  color: blue;
+}
+
+.move-button {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.move-button:hover {
+  background-color: blue; 
+  color: white;
+}
 
 .column {
   float: left;

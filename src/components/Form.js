@@ -57,6 +57,8 @@ class Form extends Component {
               <input type="submit" className="btn btn-success add-button" value="Add Contact"/>
             </form>
             <p>Selected value is : {this.state.selectValue}</p>
+
+            <button className="btn move-button">Move</button>
             <hr />
 
             <div className="column">
