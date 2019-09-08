@@ -12,14 +12,29 @@ export const createContact = (contact, list) => {
 
 export const deleteContact = (id) => {
   return {
-      type: actionTypes.REMOVE_CONTACT,
-      id: id
+    type: actionTypes.REMOVE_CONTACT,
+    id: id
   }
 };
 
 export const editContact = (contact) => {
   return {
-      type: actionTypes.EDIT_CONTACT,
-      contact: contact
+    type: actionTypes.EDIT_CONTACT,
+    contact: contact
+  }
+}
+
+// export const moveContact = (contact) => {
+//   return {
+//     type: actionTypes.MOVE_CONTACT,
+//     contact: contact,
+//     checked: checked
+//   }
+// }
+
+export const toggleChecked = (id) => {
+  return {
+    type: actionTypes.TOGGLE_CHECKED,
+    id: id,
   }
 }

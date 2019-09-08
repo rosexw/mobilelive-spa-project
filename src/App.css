@@ -15,11 +15,15 @@
   border-collapse: collapse;
 }
 
+.results-row {
+  min-height: 150px;
+}
+
 .list-data-item {
   white-space: pre-line;
   overflow: scroll;
   word-break: break-word;
-  min-width: 100%;
+  max-width: 400px;
 }
 
 .list-buttons {
@@ -40,7 +44,6 @@
 #dropdown {
   margin: 0 20px;
 }
-
 
 .btn {
   color: white;
@@ -75,17 +78,14 @@
   border: 1px solid rgb(186, 186, 186);
 }
 
-.move-button {
+.feature-button {
   background-color: white;
   color: blue;
-}
-
-.move-button {
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
 }
 
-.move-button:hover {
+.feature-button:hover {
   background-color: blue; 
   color: white;
 }

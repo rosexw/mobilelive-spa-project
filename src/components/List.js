@@ -10,14 +10,15 @@ class List extends Component {
   constructor(props){
     super(props);
     this.state = {
-      name: '',
+      name: ''
     }
   }
 
-  listItemView(data, index){
+  renderListItem(data, index){
     return (
-      <tr className="list-group-item clearfix" key={data.id}>
-        <td className="list-data-item">{data.name}</td>
+      <tr className="list-group-item clearfix pd-checkbox" key={data.id}>
+        <input type="checkbox" className="checkbox-custom" checked={data.checked} onChange={() => this.onCheck(data.id)}></input>
+        <label className="form-check-label list-data-item">{data.name}</label>
         <td className="list-buttons">
           <Link to={`/edit/${data.name}`} className="btn btn-info edit-button">
             Edit
@@ -34,6 +35,11 @@ class List extends Component {
     )
   }
 
+  onCheck(id) {
+    console.log('onCheck', id);
+    this.props.toggleChecked(id);
+  }
+
   deleteContact(e, name, id){
     e.preventDefault();
     if (window.confirm('Are you sure you wish to delete this item?')) {
@@ -48,7 +54,7 @@ class List extends Component {
     return (
       <table className="results-table">
         <tbody>
-          {this.props.list.map((contact, i) => this.listItemView(contact, i))}
+          {this.props.list.map((contact, i) => this.renderListItem(contact, i))}
         </tbody>    
       </table>
     );
@@ -66,6 +72,7 @@ const mapDispatchToProps = (dispatch) => {
     createContact: contact => dispatch(contactAction.createContact(contact)),
     editContact: index => dispatch(contactAction.editContact(index)),
     deleteContact: contact => dispatch(contactAction.deleteContact(contact)),
+    toggleChecked: id => dispatch(contactAction.toggleChecked(id)),
   }
 };
 export default connect(mapStateToProps, mapDispatchToProps)(List);

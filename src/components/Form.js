@@ -35,7 +35,16 @@ class Form extends Component {
   handleDropdownChange(e) {
     this.setState({ selectValue: e.target.value });
   }
-
+ 
+  toggle() {
+    // var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    // for (var i = 0; i < checkboxes.length; i++) {
+    //     if (checkboxes[i] !== source) {
+    //         checkboxes[i].checked = source.checked;
+    //         console.log('check all checkboxes');
+    //     }
+    // }
+  }
 
   render() {
     return (
@@ -58,7 +67,8 @@ class Form extends Component {
             </form>
             <p>Selected value is : {this.state.selectValue}</p>
 
-            <button className="btn move-button">Move</button>
+            <button className="btn feature-button">Move</button>
+            <button className="btn feature-button" onClick={this.toggle}>Select All</button>
             <hr />
 
             <div className="column">
