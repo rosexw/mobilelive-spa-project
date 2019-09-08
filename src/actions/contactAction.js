@@ -38,3 +38,9 @@ export const toggleChecked = (id) => {
     id: id,
   }
 }
+
+export const selectAll = () => {
+  return {
+    type: actionTypes.SELECT_ALL,
+  }
+}

@@ -36,7 +36,6 @@ class List extends Component {
   }
 
   onCheck(id) {
-    console.log('onCheck', id);
     this.props.toggleChecked(id);
   }
 

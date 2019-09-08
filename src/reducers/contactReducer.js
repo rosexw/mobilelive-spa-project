@@ -18,9 +18,6 @@ function createContact(contact) {
 
 function checkedContact(contact, action) {
   if (contact.id === action.id) {
-    // toggle checked
-    console.log('checked', contact.checked);
-
     return {
       ...contact,
       checked: !contact.checked,
@@ -28,6 +25,13 @@ function checkedContact(contact, action) {
   } else {
     return contact;
   }
+}
+
+function selectAll(contact) {
+ return {
+   ...contact,
+   checked: true,
+ }
 }
 
 export default (state = initialState, action) => {
@@ -67,7 +71,6 @@ export default (state = initialState, action) => {
       // case actionTypes.MOVE_CONTACT:
 
       case actionTypes.TOGGLE_CHECKED:
-        console.log('toggle checked function');
         return {
           ...state,
           list1: state.list1.map(
@@ -75,6 +78,17 @@ export default (state = initialState, action) => {
           ),    
           list2: state.list2.map(
             contact => checkedContact(contact, action)
+          )
+        }
+
+      case actionTypes.SELECT_ALL:
+        return {
+          ...state,
+          list1: state.list1.map(
+            contact => selectAll(contact)
+          ),    
+          list2: state.list2.map(
+            contact => selectAll(contact)
           )
         }
 

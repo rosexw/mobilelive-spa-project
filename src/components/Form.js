@@ -11,6 +11,7 @@ class Form extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDropdownChange = this.handleDropdownChange.bind(this);
+    this.selectAll = this.selectAll.bind(this);
 
     this.state = {
       name: '',
@@ -36,14 +37,8 @@ class Form extends Component {
     this.setState({ selectValue: e.target.value });
   }
  
-  toggle() {
-    // var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    // for (var i = 0; i < checkboxes.length; i++) {
-    //     if (checkboxes[i] !== source) {
-    //         checkboxes[i].checked = source.checked;
-    //         console.log('check all checkboxes');
-    //     }
-    // }
+  selectAll() {
+    this.props.selectAll();
   }
 
   render() {
@@ -68,7 +63,7 @@ class Form extends Component {
             <p>Selected value is : {this.state.selectValue}</p>
 
             <button className="btn feature-button">Move</button>
-            <button className="btn feature-button" onClick={this.toggle}>Select All</button>
+            <button className="btn feature-button" onClick={this.selectAll}>Select All</button>
             <hr />
 
             <div className="column">
@@ -97,6 +92,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createContact: (contact, list) => dispatch(contactAction.createContact(contact, list)),
+    selectAll: () => dispatch(contactAction.selectAll())
   }
 };
 
