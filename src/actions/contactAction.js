@@ -17,19 +17,20 @@ export const deleteContact = (id) => {
   }
 };
 
-export const editContact = (contact) => {
+export const editContact = (id) => {
   return {
     type: actionTypes.EDIT_CONTACT,
-    contact: contact
+    id: id
   }
 }
 
-export const moveContact = (contact, checked, list) => {
+// export const moveContact = (contact, checked, list) => {
+export const moveContact = (contact) => {
   return {
     type: actionTypes.MOVE_CONTACT,
     contact: contact,
-    checked: checked,
-    list: list,
+    // checked: checked,
+    // list: list,
   }
 }
 
