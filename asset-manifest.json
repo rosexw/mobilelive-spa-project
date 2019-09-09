@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/spa-project-with-lists/static/css/main.e86e53b7.chunk.css",
-    "main.js": "/spa-project-with-lists/static/js/main.76fab3eb.chunk.js",
-    "main.js.map": "/spa-project-with-lists/static/js/main.76fab3eb.chunk.js.map",
+    "main.js": "/spa-project-with-lists/static/js/main.6b73e89d.chunk.js",
+    "main.js.map": "/spa-project-with-lists/static/js/main.6b73e89d.chunk.js.map",
     "runtime~main.js": "/spa-project-with-lists/static/js/runtime~main.caaa7ceb.js",
     "runtime~main.js.map": "/spa-project-with-lists/static/js/runtime~main.caaa7ceb.js.map",
     "static/js/2.521681e4.chunk.js": "/spa-project-with-lists/static/js/2.521681e4.chunk.js",
     "static/js/2.521681e4.chunk.js.map": "/spa-project-with-lists/static/js/2.521681e4.chunk.js.map",
     "index.html": "/spa-project-with-lists/index.html",
-    "precache-manifest.eb797fa26120a8bf2fce47581238346f.js": "/spa-project-with-lists/precache-manifest.eb797fa26120a8bf2fce47581238346f.js",
+    "precache-manifest.0a580b4bfcb6a4c5e945851000a93cfe.js": "/spa-project-with-lists/precache-manifest.0a580b4bfcb6a4c5e945851000a93cfe.js",
     "service-worker.js": "/spa-project-with-lists/service-worker.js",
     "static/css/main.e86e53b7.chunk.css.map": "/spa-project-with-lists/static/css/main.e86e53b7.chunk.css.map"
   }
