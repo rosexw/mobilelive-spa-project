@@ -18,6 +18,12 @@
   flex-direction: row;
 }
 
+.list-group-item {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  flex-direction: row;
+}
+
 @media screen and (max-width: 800px) {
   /* comes into effect for screens between 321 and 480 pixels (inclusive) */
   .results-table {
@@ -27,7 +33,6 @@
 
 .results-list {
   display: grid;
-  grid-auto-rows: minmax(auto);
 }
 
 .column {
@@ -43,7 +48,7 @@
   white-space: pre-line;
   overflow: scroll;
   word-break: break-word;
-  max-width: 400px;
+  max-width: 200px;
 }
 
 .list-buttons {

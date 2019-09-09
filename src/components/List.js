@@ -17,8 +17,10 @@ class List extends Component {
   renderListItem(data, index){
     return (
       <div className="list-group-item clearfix pd-checkbox" key={data.id}>
-        <input type="checkbox" className="checkbox-custom" checked={data.checked} onChange={() => this.onCheck(data.id)}></input>
-        <label className="form-check-label list-data-item">{data.name}</label>
+        <div className="checkbox">
+          <input type="checkbox" className="checkbox-custom" checked={data.checked} onChange={() => this.onCheck(data.id)}></input>
+          <label className="form-check-label list-data-item">{data.name}</label>
+        </div>
         <div className="list-buttons">
           <Link to={`/edit/${data.name}`} className="btn btn-info edit-button">
             Edit
