@@ -68,7 +68,19 @@ export default (state = initialState, action) => {
       case actionTypes.EDIT_CONTACT:
         return state;
 
-      // case actionTypes.MOVE_CONTACT:
+      case actionTypes.MOVE_CONTACT:
+        // if the contact is in list 1
+        // then remove the item from list 1
+        // add item to list 2
+
+        // if 
+        console.log("move contact 2");
+        return state;
+
+        // if the contact is in list 2
+        // then remove the item from list 2
+        // add item to list 1
+
 
       case actionTypes.TOGGLE_CHECKED:
         return {

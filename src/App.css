@@ -13,6 +13,26 @@
   table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 800px) {
+  /* comes into effect for screens between 321 and 480 pixels (inclusive) */
+  .results-table {
+    grid-template-columns: 1fr;
+  }
+}
+
+.results-list {
+  display: grid;
+  grid-auto-rows: minmax(auto);
+}
+
+.column {
+  float: left;
+  margin: 0 10px;
 }
 
 .results-row {
@@ -49,7 +69,7 @@
   color: white;
   display: inline-block;
   text-decoration: none;
-  margin-left: 10px;
+  margin: 0 0 10px 10px;
   padding: 0.5em 1em;
   font-size: 18px;
 }
@@ -88,12 +108,6 @@
 .feature-button:hover {
   background-color: blue; 
   color: white;
-}
-
-.column {
-  float: left;
-  width: 48%;
-  margin: 0 10px;
 }
 
 /* Clear floats after the columns */

@@ -16,10 +16,10 @@ class List extends Component {
 
   renderListItem(data, index){
     return (
-      <tr className="list-group-item clearfix pd-checkbox" key={data.id}>
+      <div className="list-group-item clearfix pd-checkbox" key={data.id}>
         <input type="checkbox" className="checkbox-custom" checked={data.checked} onChange={() => this.onCheck(data.id)}></input>
         <label className="form-check-label list-data-item">{data.name}</label>
-        <td className="list-buttons">
+        <div className="list-buttons">
           <Link to={`/edit/${data.name}`} className="btn btn-info edit-button">
             Edit
           </Link>
@@ -30,8 +30,8 @@ class List extends Component {
           >
             Delete
           </button>
-        </td>
-      </tr>
+        </div>
+      </div>
     )
   }
 
@@ -51,11 +51,16 @@ class List extends Component {
 
   render() {
     return (
-      <table className="results-table">
-        <tbody>
-          {this.props.list.map((contact, i) => this.renderListItem(contact, i))}
-        </tbody>    
-      </table>
+      // <table className="results-table">
+      //   <tbody>
+      //     {this.props.list.map((contact, i) => this.renderListItem(contact, i))}
+      //   </tbody>    
+      // </table>
+
+      <div className="results-list">
+        {this.props.list.map((contact, i) => this.renderListItem(contact, i))}
+      </div>
+
     );
   }
 }
@@ -72,6 +77,7 @@ const mapDispatchToProps = (dispatch) => {
     editContact: index => dispatch(contactAction.editContact(index)),
     deleteContact: contact => dispatch(contactAction.deleteContact(contact)),
     toggleChecked: id => dispatch(contactAction.toggleChecked(id)),
+    moveContact: contact => dispatch(contactAction.moveContact(contact)),
   }
 };
 export default connect(mapStateToProps, mapDispatchToProps)(List);

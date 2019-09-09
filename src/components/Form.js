@@ -66,16 +66,17 @@ class Form extends Component {
             <button className="btn feature-button" onClick={this.selectAll}>Select All</button>
             <hr />
 
-            <div className="column">
-              <h3>List 1</h3>
-              <List list={this.props.list1} />
-            </div>
+            <div className="results-table">
+              <div className="column">
+                <h3>List 1</h3>
+                <List list={this.props.list1} />
+              </div>
 
-            <div className="column">
-              <h3>List 2</h3>
-              <List list={this.props.list2} />
+              <div className="column">
+                <h3>List 2</h3>
+                <List list={this.props.list2} />
+              </div>
             </div>
-            
           </div>
         </div>
     );
