@@ -25,7 +25,7 @@
 }
 
 @media screen and (max-width: 800px) {
-  /* comes into effect for screens between 321 and 480 pixels (inclusive) */
+  /* comes into effect for screens less than 800 pixels (phones and tablets that are smaller than an iPad Pro) */
   .results-table {
     grid-template-columns: 1fr;
   }
