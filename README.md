@@ -20,7 +20,7 @@ I also have done:
 - [x] Create React App
 - [x] Allow users to click on "Edit" to route to a different page
 - [ ] ~~ shared backend server with at least one Get and one Delete request ~~ (Don't need backend requests at this point)
-- [ ] ~~ Angular? ~~ (If project is in React, then don't this either)
+- [ ] ~~ Angular? ~~ (If project is in React, then don't do this either)
 - [x] Move the List component out of Home, into it's own component, so that we can use it for the other List.
 - [x] Make two columns next to each other
 - [x] Fix the Delete so the alert of success shows after the item has been deleted
