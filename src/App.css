@@ -49,6 +49,7 @@
   overflow: scroll;
   word-break: break-word;
   max-width: 200px;
+  padding-left: 15px;
 }
 
 .list-buttons {

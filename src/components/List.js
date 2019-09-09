@@ -53,16 +53,9 @@ class List extends Component {
 
   render() {
     return (
-      // <table className="results-table">
-      //   <tbody>
-      //     {this.props.list.map((contact, i) => this.renderListItem(contact, i))}
-      //   </tbody>    
-      // </table>
-
       <div className="results-list">
         {this.props.list.map((contact, i) => this.renderListItem(contact, i))}
       </div>
-
     );
   }
 }
