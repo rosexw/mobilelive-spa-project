@@ -12,6 +12,7 @@ class Form extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDropdownChange = this.handleDropdownChange.bind(this);
     this.selectAll = this.selectAll.bind(this);
+    this.moveContact = this.moveContact.bind(this);
 
     this.state = {
       name: '',
@@ -41,6 +42,10 @@ class Form extends Component {
     this.props.selectAll();
   }
 
+  moveContact() {
+    this.props.moveContact();
+  }
+
   render() {
     return (
         <div>
@@ -62,7 +67,7 @@ class Form extends Component {
             </form>
             <p>Selected value is : {this.state.selectValue}</p>
 
-            <button className="btn feature-button">Move</button>
+            <button className="btn feature-button" onClick={this.moveContact}>Move</button>
             <button className="btn feature-button" onClick={this.selectAll}>Select All</button>
             <hr />
 
@@ -83,7 +88,8 @@ class Form extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+// const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
     list1: state.contacts.list1,
     list2: state.contacts.list2,
@@ -93,7 +99,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createContact: (contact, list) => dispatch(contactAction.createContact(contact, list)),
-    selectAll: () => dispatch(contactAction.selectAll())
+    selectAll: () => dispatch(contactAction.selectAll()),
+    moveContact: () => dispatch(contactAction.moveContact()),
   }
 };
 

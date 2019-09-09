@@ -73,9 +73,18 @@ export default (state = initialState, action) => {
         // then remove the item from list 1
         // add item to list 2
 
-        // if 
-        console.log("move contact 2");
-        return state;
+        // if (data.id === action.id){
+        // return {
+        //   ...state,
+        //   // if contact is in list 1, then:
+        //   list1: state.list1.filter(data => data.id !== action.id),
+        //   // else contact is in list 2, then
+        //   list2: state.list2.filter(data => data.id !== action.id)
+        // };
+        // }
+
+
+        console.log("test test move contact");
 
         // if the contact is in list 2
         // then remove the item from list 2
