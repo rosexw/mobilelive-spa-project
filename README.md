@@ -31,16 +31,15 @@ I also have done:
 
 - [x]  Let user choose which list to add items to - list 1 or 2?
 
-- [ ] so you can select from list 1 and move them all once to list 2
-- [ ] so you can select from list 2 and move them all once to list 1
-
 - [x] Link the checkboxes to state
 - [x] Get Select All button to work
 
 Sept 9, 2019:
 - [x] Design = change the table to CSS Grid to remove all the errors
 - [x] Make the move button functional (actions and reducers)
-- [ ] Get the move button to change the selected from one list to the other list
+- [x] Get the move button to change the selected from one list to the other list
+  - [x] so you can select from list 1 and move them all once to list 2
+  - [x] so you can select from list 2 and move them all once to list 1
 
 ------------------------------------------------------------------------
 

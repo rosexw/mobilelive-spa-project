@@ -9,7 +9,7 @@ import Edit from './components/Edit';
 class App extends Component {
   render() {
     return(
-      <Router>
+      <Router basename="/">
         <div className="frame">
           <h1>Clientside Contacts Application</h1>
           <hr />

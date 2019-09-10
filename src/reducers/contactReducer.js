@@ -60,29 +60,35 @@ export default (state = initialState, action) => {
         return {
           ...state,
           // if contact is in list 1, then:
-          list1: state.list1.filter(data => data.id !== action.id),
+          list1: state.list1.filter(contact => contact.id !== action.id),
           // else contact is in list 2, then
-          list2: state.list2.filter(data => data.id !== action.id)
+          list2: state.list2.filter(contact => contact.id !== action.id)
         };
 
       case actionTypes.EDIT_CONTACT:
         return state;
 
       case actionTypes.MOVE_CONTACT:
-        // if the contact is in list 1
-        // then remove the item from list 1
-        // add item to list 2
+        
+        if (action.list === "list2") {
+          const movedContacts = state.list1.filter(contact => contact.checked);
+          return {
+            ...state,
+            // if contact is moving from list 1 to list 2 (if list2):
+            list1: state.list1.filter(contact => !contact.checked),
+            list2: [...state.list2, ...movedContacts],
+  
+          };
+        } else {
+          const movedContacts = state.list2.filter(contact => contact.checked);
+          return {
+            ...state,
+            // if contact is moving from list 2 to list 1 (if list1):
+            list2: state.list2.filter(contact => !contact.checked),
+            list1: [...state.list1, ...movedContacts],
 
-        // if (contact.id === action.id) {
-        //   console.log("test test move contact", action.id);
-        // }
-
-        console.log("test test move contact", action.id);
-
-        return state;
-        // if the contact is in list 2
-        // then remove the item from list 2
-        // add item to list 1
+          };
+        }
 
 
       case actionTypes.TOGGLE_CHECKED:
@@ -111,5 +117,3 @@ export default (state = initialState, action) => {
         return state;
     }
   };
-
-  // Change the Edit function case as above

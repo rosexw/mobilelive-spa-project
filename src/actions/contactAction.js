@@ -24,13 +24,10 @@ export const editContact = (id) => {
   }
 }
 
-// export const moveContact = (contact, checked, list) => {
-export const moveContact = (contact) => {
+export const moveContact = (list) => {
   return {
     type: actionTypes.MOVE_CONTACT,
-    contact: contact,
-    // checked: checked,
-    // list: list,
+    list: list,
   }
 }
 

@@ -42,8 +42,8 @@ class Form extends Component {
     this.props.selectAll();
   }
 
-  moveContact() {
-    this.props.moveContact();
+  moveContact(list) {
+    this.props.moveContact(list);
   }
 
   render() {
@@ -67,7 +67,8 @@ class Form extends Component {
             </form>
             <p>Selected value is : {this.state.selectValue}</p>
 
-            <button className="btn feature-button" onClick={this.moveContact}>Move</button>
+            <button className="btn feature-button" onClick={() => this.moveContact("list2")}>Move to List 2</button>
+            <button className="btn feature-button" onClick={() => this.moveContact("list1")}>Move to List 1</button>
             <button className="btn feature-button" onClick={this.selectAll}>Select All</button>
             <hr />
 
@@ -100,7 +101,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     createContact: (contact, list) => dispatch(contactAction.createContact(contact, list)),
     selectAll: () => dispatch(contactAction.selectAll()),
-    moveContact: () => dispatch(contactAction.moveContact()),
+    moveContact: (list) => dispatch(contactAction.moveContact(list)),
   }
 };
 
